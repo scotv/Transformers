@@ -1,12 +1,44 @@
+<html>
+	<head>
+		<title>Demo on Socket.io</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+	</head>
+	<body>
+		<div id="container-a">
+			<input id="text-a" type="text" />
+			<span id="span-a"></span>
+		</div>
+		<div id="container-b">
+			<input id="text-b" type="text" />
+			<span id="span-b"></span>
+		</div>
+	</body>
+
+</html>
 <script src="/socket.io/socket.io.js"></script>
 <script>
 	var socket = io.connect('http://localhost');
+
+	$('#text-a').on('change', function() {
+		var id = 'text-a'
+		  , value = $('#'+id).val()
+		  , data = {'id': 'container-a', 'value': value};
+		
+		console.log('data is going to emit: ', data);
+		socket.emit('container-change', data);
+	});
+
 	socket.on('news', function(data) {
 		console.log(data);
-		socket.emit('my other event', {
-			my: 'data'
-		});
 	});
+
 	
-	socket.emit('private message', 'client', 'hi');
+	socket.on('push-change', function(data) {
+		if (data && data.id && data.value) {
+			var selector = 'div[id!="'+data.id+'"] span[id]';
+			console.log(selector);
+			$(selector)
+			.text('another client has changed value of ' + data.id + ' to ' + data.value);
+		}
+	});
 </script>

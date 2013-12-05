@@ -14,7 +14,11 @@ io.sockets.on('connection', function (socket) {
 		error: '',
 		time: (new Date()).toISOString()
 	});
-	socket.on('private message', function (from, msg) {
-		console.log('I received a private message by ', from, ' saying ', msg);
+	
+	socket.on('container-change', function (data) {
+		console.log('container-change');
+		console.log('args', arguments.length)
+		console.log(data);
+		socket.broadcast.emit('push-change', data);
 	});
 });

@@ -92,6 +92,24 @@
      </div>
     </div>
 </div>
+	  <script src="http://localhost:4001/socket.io/socket.io.js"></script>
+	  <script type="text/javascript">
+	  	$(document).ready(function () {
+			// realtime with socket.io
+			var socket = io.connect('http://localhost:4001');
+			socket.on('item-updated', function (data) {
+				console.log('************item-updated************');
+				console.log(data);
+			});
+			
+			// test dealing.saveItem
+			debugger;
+			$.post('/api/dealing/1', {description: 'update from client js'}, function (data) {
+				console.log('post feedback from server');
+				console.log(data);
+			});
+		});
+	  </script>
 </body>
 </html>
 

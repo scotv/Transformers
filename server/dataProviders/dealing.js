@@ -1,6 +1,7 @@
 var MongoClient = require('mongodb').MongoClient,
     Server = require('mongodb').Server,
-    when = require('when');
+    when = require('when'), 
+	io = require('socket.io').listen(4001);
 
 var mongoHandler = {
 	collection: function (def, collectionId, collectionHandler) {
@@ -50,7 +51,14 @@ exports.saveItem = function (id, item) {
 			console.log('************dealing.saveItem************');
 			console.log(err, rowAffected);
 			if (!err) {
-				console.log('dealing has been insert / updated.');
+				console.log('dealing has been insert / updated.');				
+				
+				// realtime with socket.io
+				io.sockets.on('connection', function (socket) {
+					console.log('************emit.item-updated************');
+					socket.broadcast.emit('item-updated', {message: 'update news emitted from server by socket.io', data: item});
+				});
+				
 				def.resolve(item);
 			}
 		});

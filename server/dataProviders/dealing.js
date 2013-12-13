@@ -54,15 +54,23 @@ exports.saveItem = function (id, item) {
 	
 	// parse to number, if id is a string
 	id = +id;
-	
+	console.log(item);
 	mongoHandler.collection(deferred, 'dealing', function(def, col) {
-		col.update({_id: id}, {$set: item}, {w: 1, upsert: true, multi: true}, function (err, rowAffected) {
-			console.log('************dealing.saveItem************');
-			console.log(err, rowAffected);
-			if (!err) {
-				console.log('dealing has been insert / updated.');	
-			} else {				
-				def.resolve(item);
+		col.count({_id: id}, function (err, count) {
+			if (count === 0) {
+				// do insert
+				
+				// todo: does id == item._id?
+				// todo: does item has full construction?
+                item._id = +item.dealNumber;
+				col.insert(item, {w: 1}, function (err, result) {
+					def.resolve(item);
+				});
+			} else {
+				// do update
+				col.update({_id: id}, item, {w: 1}, function (err, result) {
+					def.resolve(item);
+				});
 			}
 		});
 	});

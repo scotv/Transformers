@@ -1,0 +1,93 @@
+<div class="container">
+
+    <form role="form" class="form-inline">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="title">Deal No</label>
+                    <input class="form-control" type="text" name="title" placeholder="Title"
+                           ng-model="model.dealNumber" >
+                </div>
+                <div class="form-group">
+                    <label for="title">Ticket Number</label>
+                    <input class="form-control" type="text" name="title" placeholder="Ticket Number"
+                           ng-model="model.ticketNumber">
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="title">Instrument Type</label>
+                    <input class="form-control" type="text" name="title" placeholder="Instrument Type"
+                           ng-model="model.instrumentType">
+                    <label for="title">Non Business Day Settlement</label>
+                    <input class="form-control" type="text" name="title" placeholder="Non Business Day Settlement"
+                           ng-model="model.nonBusinessDay">
+                </div>
+                <div class="form-group">
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="price">Counterparty</label>
+                <input class="form-control" type="text" name="price" placeholder="Counterparty"
+                       ng-model="model.counterparty">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="price">Entity</label>
+                <input class="form-control" type="text" name="price" placeholder="Entity" ng-model="model.entity">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="price">Relationship</label>
+                <input class="form-control" type="text" name="price" placeholder="Relationship"
+                       ng-model="model.relationShip">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label for="title">Currency</label>
+                <input class="form-control" type="text" name="title" placeholder="Currency"
+                       ng-model="model.buyCurrency">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="location">Buy Amount</label>
+                <input class="form-control" type="text" name="location" placeholder="Buy Amount"
+                       ng-model="model.buyAmount">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="title">Currency</label>
+                <input class="form-control" type="text" name="title" placeholder="Currency"
+                       ng-model="model.sellCurrency">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="location">Sell Amount</label>
+                <input class="form-control" type="text" name="location" placeholder="Buy Amount"
+                       ng-model="model.sellAmount">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label for="title">Sopt Rate</label>
+                <input class="form-control" type="text" name="title" placeholder="Sopt Rate" ng-model="model.spotRate">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="title">Near Rate</label>
+                <input class="form-control" type="text" name="title" placeholder="Near Rate" ng-model="model.nearRate">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="title">Deal Rate</label>
+                <input class="form-control" type="text" name="title" placeholder="Deal Rate" ng-model="model.dealDate">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="title">Near Rate</label>
+                <input class="form-control" type="text" name="title" placeholder="Near Rate" ng-model="model.nearDate">
+            </div>
+        </div>
+
+    </form>
+</div>

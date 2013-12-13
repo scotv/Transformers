@@ -10,6 +10,7 @@ div.hidden-bar{
     overflow:hidden;
 }
 div.placeholder{
+    float: right;
     width:90px;
     height:100%;
     background:rgba(50,50,50,0.0);

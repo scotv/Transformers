@@ -4,6 +4,10 @@ var express = require("express"),
     init = require('./server/routers').init,
     app = express();
 
+var server = require('http').createServer(app).listen(5000);
+var io = require('socket.io').listen(server);
+
+
 // Configuration
 app.configure(function () {
     app.set('views', path.join(__dirname, '/app'));
@@ -18,7 +22,17 @@ app.configure(function () {
 routes(app);
 init(true);
 
-var port = process.env.PORT || 5000;
+io.sockets.on('connection', function(socket){
+
+    socket.on('deal-edited', function(deal){
+        socket.emit('deal-edited',deal);
+    });
+    socket.on('deal-created', function(deal){
+        socket.broadcast.emit('created',deal);
+    });
+});
+
+/*var port = process.env.PORT || 5000;
 app.listen(port, function () {
     console.log("Listening on " + port);
-});
+});*/

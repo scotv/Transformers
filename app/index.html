@@ -1,9 +1,13 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" ng-app="transformersApp"> <!--<![endif]-->
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title></title>
@@ -11,105 +15,107 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <!-- build:css({.tmp,app}) styles/main.css -->
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-        <link rel="stylesheet" href="bower_components/bootstrap-floating-labels/floating-labels.css">
-        <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet" href="styles/sidebar.css">
-        <link rel="stylesheet" href="styles/charmsbar.css">
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/examples/non-responsive/non-responsive.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-datepicker/css/datepicker.css">
+    <link rel="stylesheet" href="bower_components/toastr/toastr.css">
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
+    <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.css">
+    <!-- <link rel="stylesheet" href="styles/charmsbar.css"> -->
 
-        <link rel="stylesheet" type="text/css" href="styles/plugins/mutilevelmenu/css/normalize.css" />
-        <link rel="stylesheet" type="text/css" href="styles/plugins/mutilevelmenu/css/demo.css" />
-        <link rel="stylesheet" type="text/css" href="styles/plugins/mutilevelmenu/css/icons.css" />
-        <link rel="stylesheet" type="text/css" href="styles/plugins/mutilevelmenu/css/component.css" />
-        <!-- endbuild -->
+    <link rel="stylesheet" type="text/css" href="styles/plugins/mutilevelmenu/css/normalize.css"/>
+    <link rel="stylesheet" href="styles/charmsbar.css">
+    <style>
+        .gridStyle {
+            border: 1px solid rgb(212,212,212);
+            width: 400px; 
+            height: 100px;
+        }
+    </style>
+    <!-- <link rel="stylesheet" type="text/css" href="styles/plugins/mutilevelmenu/css/demo.css"/> -->
+    <!-- <link rel="stylesheet" type="text/css" href="styles/plugins/mutilevelmenu/css/icons.css"/> -->
+    <!-- <link rel="stylesheet" type="text/css" href="styles/plugins/mutilevelmenu/css/component.css"/> -->
+    <!-- endbuild -->
 </head>
-  <body ng-app="transformersApp">
-    <!--[if lt IE 7]>
-      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-    <![endif]-->
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
+    today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
+    experience this site.</p>
+<![endif]-->
 
-    <!--[if lt IE 9]>
-      <script src="bower_components/es5-shim/es5-shim.js"></script>
-      <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="container" ng-view="">
-
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Transformer</a>
     </div>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src='//www.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-
-    <script src="bower_components/jquery/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-
-        <!-- build:js scripts/plugins.js -->
-        <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-alert.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-dropdown.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-tooltip.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-modal.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-transition.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-button.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-popover.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-typeahead.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-carousel.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-scrollspy.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-collapse.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-tab.js"></script>
-        <script src="bower_components/bootstrap-floating-labels/floating-labels.js"></script>
-        <!-- endbuild -->
-
-        <!-- build:js scripts/modules.js -->
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <!-- endbuild -->
-        <script src="scripts/modernizr.custom.js"></script>
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/dom.js"></script>
-        <script src="scripts/plugins/classie.js"></script>
-        <script src="scripts/plugins/mlpushmenu.js"></script>
-        <!-- endbuild -->
-<div class="hidden-bar"></div>
-<div class="placeholder">
-   <div class="charmbar" id="trigger">
-     <div class="charmcontainer">
-      <img src="http://i1121.photobucket.com/albums/l517/grimmdev/Deviantart/Charmsbar/search.png">
-      <img src="http://i1121.photobucket.com/albums/l517/grimmdev/Deviantart/Charmsbar/share.png">
-      <img src="http://i1121.photobucket.com/albums/l517/grimmdev/Deviantart/Charmsbar/startconsumer.png">
-      <img src="http://i1121.photobucket.com/albums/l517/grimmdev/Deviantart/Charmsbar/devices.png">
-      <img src="http://i1121.photobucket.com/albums/l517/grimmdev/Deviantart/Charmsbar/settings.png">
-     </div>
-    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#about">About</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Action <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Compare</a></li>
+            <li><a href="#">Swap</a></li>
+            <li><a href="#">Back To Back</a></li>
+          </ul>
+        </li>
+      </ul>
+     
+    </div><!--/.nav-collapse -->
+  </div>
 </div>
-	  <script src="http://localhost:4001/socket.io/socket.io.js"></script>
-	  <script type="text/javascript">
-	  	$(document).ready(function () {
-			// realtime with socket.io
-			var socket = io.connect('http://localhost:4001');
-			socket.on('item-updated', function (data) {
-				console.log('************item-updated************');
-				console.log(data);
-			});
-			
-			// test dealing.saveItem
-			debugger;
-			$.post('/api/dealing/1', {description: 'update from client js'}, function (data) {
-				console.log('post feedback from server');
-				console.log(data);
-			});
-		});
-	  </script>
+<div class="container">
+    <ng-view></ng-view>
+ </div> <!-- /container -->
+
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="bower_components/toastr/toastr.js"></script>
+<script src="bower_components/lodash/dist/lodash.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-socket-io/socket.js"></script>
+<script src="bower_components/ng-grid/ng-grid-2.0.7.debug.js"></script>
+
+<!-- build:js scripts/plugins.js -->
+<!-- <script src="bower_components/bootstrap-floating-labels/floating-labels.js"></script> -->
+<!-- endbuild -->
+
+<!-- build:js scripts/modules.js -->
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<!-- endbuild -->
+<script src="scripts/modernizr.custom.js"></script>
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/services/dealService.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/deal.js"></script>
+<script src="scripts/directives/trEnter.js"></script>
+<script src="scripts/directives/trDatePicker.js"></script>
+<!-- <script src="scripts/directives/multilevelMenu.js"></script> -->
+
+<!-- <script src="scripts/plugins/classie.js"></script> -->
+<!-- <script src="scripts/plugins/mlpushmenu.js"></script> -->
+<!-- endbuild -->
+
+
 </body>
 </html>
 

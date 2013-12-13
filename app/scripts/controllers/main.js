@@ -1,10 +1,9 @@
 'use strict';
 
-angular.module('transformersApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+transApp.controller('MainCtrl', ['$scope', 'dealService',
+    function ($scope, dealService) {
+        $scope.deals = dealService.query();
+        $scope.viewModel = dealService.get({id:1});
+    }]
+);
+  

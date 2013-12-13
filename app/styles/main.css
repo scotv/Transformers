@@ -1,113 +1,42 @@
+html{
+	height: 100%;
+}
+
+body{
+	height: 100%;width: 100%; 
+	overflow-x:hidden;
+}
+
 .container{
+	height: 100%;
 	margin: 0;
 	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-x:hidden;
+}
+.codrops-top{height: 5%;}
+.content{
+	height: 95%;
+}
+.scroller,.scroller-inner{
+	position:absolute;
+	height: 100%;
+	width: 100%;
+	min-height: 100%;
+	overflow-x:hidden;
 }
 
-.splitlayout {
-    position: fixed;
-    overflow-x: hidden;
-    min-height: 100%;
-    width: 100%;
-}
 
-#wrapper {
-  padding-left: 250px;
-  transition: all 0.4s ease 0s;
-}
-
-#sidebar-wrapper {
-  margin-left: -250px;
-  left: 250px;
-  width: 250px;
-  background: #000;
-  position: fixed;
-  height: 100%;
-  overflow-y: auto;
-  z-index: 1000;
-  transition: all 0.4s ease 0s;
-  opacity:0.4;
-   filter:alpha(opacity=40); 
-}
-
-#page-content-wrapper {
-  width: 100%;
-}
-
-.sidebar-nav {
-  position: absolute;
-  top: 0;
-  width: 250px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.sidebar-nav li {
-  line-height: 40px;
-  text-indent: 20px;
-}
-
-.sidebar-nav li a {
-  color: #999999;
-  display: block;
-  text-decoration: none;
-}
-
-.sidebar-nav li a:hover {
-  color: #fff;
-  background: rgba(255,255,255,0.2);
-  text-decoration: none;
-}
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-  text-decoration: none;
-}
-
-.sidebar-nav > .sidebar-brand {
-  height: 65px;
-  line-height: 60px;
-  font-size: 18px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-  color: #999999;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-  color: #fff;
-  background: none;
-}
-/* Intro sides */
 .side {
-    position: fixed;
-    top: 10;
-    z-index: 100;
-    width: 50%;
     height: 100%;
     text-align: center;
     -webkit-backface-visibility: hidden;
 }
-
-.side-left .overlay {
-	background: rgba(0,0,0,0.7);
+.one-side{
+  background: #47a3da;
 }
 
-.side-right .overlay {
-	background: rgba(0,0,0,0.3);
+.the-other-side{
+  background: #ccc;
 }
-
-.side-left {
-	left:0;
-	background: #47a3da;
-	color: #fff;
-	outline: 1px solid #47a3da; /* avoid gap */
-}
-
-.side-right {
-	right:0;
-	background: #fff;
-	color: #47a3da;
-	outline: 1px solid #fff; /* avoid gap */
-}
-
